@@ -9,9 +9,8 @@ import { logoutUser } from '../redux/actions/user';
 
 const Header = (props) => {
     // Am eliminat din Header props-urile ce veneau din Layout!
-    // De asemenea, am eliminat si metoda handleHeaderSignOut, care se ocupa de mecanismul de sign out.
-    // acum signout-ul afecteaza doar store-ul, iar componentele conectate la el pot vedea modificarile
-    // corespunzatoare.
+    // Acum signOut-ul este injectat in props prin metoda mapDispatchToProps si va lansa actiunea
+    // logoutUser(importata si ea).
     return(
         <header className="border-bottom mb-3">
             <div className="container-fluid container-min-max-width d-flex justify-content-between align-items-center">
@@ -26,8 +25,7 @@ const Header = (props) => {
                     }
                     <div className="d-flex justify-content-end">
                         { props.user && props.user.uid
-                            // La click pe "Delogare", se apeleaza metoda signOut, venita prin mapDispatcToProps,
-                            // trebuie apelata cu props.signOut.
+                            // La click pe "Delogare", se apeleaza metoda signOut, venita prin mapDispatcToProps.
                             ? <p className="logout h5" onClick={() => props.signOut()}>Delogare</p>
                             : <Link to="/login" className="text-dark h5 mb-0">Logare</Link>
                         }

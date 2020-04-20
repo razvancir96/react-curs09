@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { removeFromCart } from '../redux/actions/cart';
 import { Link } from 'react-router-dom';
 import './Cart.css';
-import { ReactComponent as Close} from '../assets/icons/close.svg';
+import { ReactComponent as Close } from '../assets/icons/close.svg';
 
 const Cart = (props) => {
     // Am adaugat o functie care calculeaza cu reduce suma totala a produselor.
