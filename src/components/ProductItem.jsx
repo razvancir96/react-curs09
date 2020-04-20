@@ -3,7 +3,7 @@ import './ProductItem.css';
 import { connect } from 'react-redux';
 import { addToCart } from '../redux/actions/cart';
 
-const ProductItem = (props) => {
+function ProductItem(props) {
     const {name, price, currency, image, id} = props;
 
     return(

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import './Cart.css';
 import { ReactComponent as Close } from '../assets/icons/close.svg';
 
-const Cart = (props) => {
+function Cart(props) {
     // Am adaugat o functie care calculeaza cu reduce suma totala a produselor.
     const totalSum = (products) => {
         return products.reduce((acc, product) => {

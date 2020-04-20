@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 // Importam metoda signOut din folderul apis/firebase.
 import { logoutUser } from '../redux/actions/user';
 
-const Header = (props) => {
+function Header(props) {
     // Am eliminat din Header props-urile ce veneau din Layout!
     // Acum signOut-ul este injectat in props prin metoda mapDispatchToProps si va lansa actiunea
     // logoutUser(importata si ea).
