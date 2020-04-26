@@ -19,6 +19,7 @@ export function userReducer(state = initialState, action) {
         case 'UPDATE_USER_DATA':
             return Object.assign({}, state, {
                 data: action.payload,
+                error: null,
                 loading: false
             });
         // Daca actiunea asincrona contine erori, actualizam mesajul de eroare, dar si loading-ul.
