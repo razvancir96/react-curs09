@@ -19,12 +19,12 @@ function Header(props) {
                 </Link>
                 <div>
                     {/* Atentie! Userul este preluat din store, deci il vom referi ca props.user. */}
-                    { props.user && props.user.uid
+                    { props.user
                         ? <p>Salut, {props.user.displayName}!</p>
                         : null
                     }
                     <div className="d-flex justify-content-end">
-                        { props.user && props.user.uid
+                        { props.user
                             // La click pe "Delogare", se apeleaza metoda signOut, venita prin mapDispatcToProps.
                             ? <p className="logout h5" onClick={() => props.signOut()}>Delogare</p>
                             : <Link to="/login" className="h5 mb-0">Logare</Link>
@@ -46,7 +46,7 @@ function Header(props) {
 function mapStateToProps(state) {
     return {
         numberOfProducts: state.cart.products.length,
-        user: state.user.data.user
+        user: state.user.data
     }
 }
 // Avem nevoie de actiunea logoutUser, importata din redux/actions, care va face logarea efectiva a userului.

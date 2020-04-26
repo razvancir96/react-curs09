@@ -51,7 +51,7 @@ const mapStateToProps = (state) => {
         // iau prin mapStateToProps FIX campurile care sunt actualizate in store. In cazul de fata
         // se modifica valoarea lui state.user.data.user, iar pentru store este diferit de
         // state.user.data, intrucat el verifica modficarile SHALLOW intamplate(pe primul nivel).
-        user: state.user.data.user
+        user: state.user.data
     }
 }
 

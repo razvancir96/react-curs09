@@ -11,13 +11,13 @@ const startLoading = () => {
 const updateUserData = (payload) => {
     return {
         type: 'UPDATE_USER_DATA',
-        data: payload
+        payload: payload
     }
 }
 const updateUserError = (payload) => {
     return {
         type: 'UPDATE_USER_ERROR',
-        error: payload
+        payload: payload
     }
 }
 
@@ -35,8 +35,8 @@ export function loginUser() {
 
         // Functia signInWithGoogle intoarce un Promise in caz de succes, asadar abia in .then vom stii ca datele au
         // venit cu succes. Odata ce avem datele despre user, facem dispatch la actiunea updateUserData.
-        signInWithGoogle().then(user => {
-            dispatch(updateUserData(user));
+        signInWithGoogle().then(userData => {
+            dispatch(updateUserData(userData.user));
         // In cazul in care apare o eroare, trebuie sa salvam mesajul de eroare corespunzator, asadar vom face
         // dispatch la o noua actiune: updateUserError.
         }).catch(error => {
@@ -52,7 +52,7 @@ export function logoutUser() {
         dispatch(startLoading());
 
         signOut().then(() => {
-            dispatch(updateUserData({}));
+            dispatch(updateUserData(null));
         }).catch((error) => {
             dispatch(updateUserError(error));
         });

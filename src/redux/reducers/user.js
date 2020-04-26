@@ -1,6 +1,6 @@
 // Avem nevoie de un initial state
 const initialState = {
-    data: {},
+    data: null,
     loading: false,
     error: null
 };
@@ -18,13 +18,13 @@ export function userReducer(state = initialState, action) {
         // inseamna ca s-a terminat actunea asincrona, deci setam loading-ul pe false.
         case 'UPDATE_USER_DATA':
             return Object.assign({}, state, {
-                data: action.data,
+                data: action.payload,
                 loading: false
             });
         // Daca actiunea asincrona contine erori, actualizam mesajul de eroare, dar si loading-ul.
         case 'UPDATE_USER_ERROR':
             return Object.assign({}, state, {
-                error: action.error,
+                error: action.payload,
                 loading: false
             })
         default:
